@@ -187,21 +187,6 @@ html.mobile .g-grid { grid-template-columns: repeat(var(--mcols, 1), minmax(0, 1
 .marquee-inner { display: flex; width: max-content; animation: marquee 40s linear infinite; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* ---------- Overlay (Info) */
-.overlay { position: fixed; inset: 0; z-index: 100; overflow: auto; overscroll-behavior: contain; }
-.overlay[hidden] { display: none; }
-.overlay > .page { min-height: 100%; }
-.overlay-close {
-  position: fixed;
-  top: 1.2rem;
-  right: 1.6rem;
-  z-index: 101;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: var(--green-dark);
-}
-body.no-scroll { overflow: hidden; }
-
 /* ---------- Focus */
 :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
@@ -1755,21 +1740,35 @@ html.mobile [id="D1283095044"] .page-layout {
 
 }
 
-/* ---- Information (W0120917068) ---- */
-[id="W0120917068"].page {
-	min-height: var(--viewport-height);
-	--page-backdrop-filter: blur(1.37rem);
-	justify-content: center;
-	background-color: rgba(255, 255, 255, 0.6);
-}
+/* ---- Info page (W0120917068) ---- */
+[id="W0120917068"].page { min-height: var(--viewport-height); background-color: #0b0b0b; }
+[id="W0120917068"] .page-content { padding: 10rem 4.4rem 7rem; }
 
-[id="W0120917068"] .page-layout {
-}
+.info-bio { max-width: 75%; margin-bottom: 8rem; }
+.info-label, html.mobile .info-label { margin: 0 0 1.4rem; font-size: 1.2rem; line-height: 1.3; font-weight: 500; letter-spacing: 0; text-transform: uppercase; }
+.info-clients, .info-exhibitions { list-style: none; margin: 0; padding: 0; }
 
-[id="W0120917068"] .page-content {
-	padding-top: 2rem;
-	align-items: flex-start;
+.info-clients { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+.info-row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  align-items: baseline;
+  padding: 0.9rem 0 1rem;
+  border-top: 1px solid #077723;
 }
+.info-name { font-size: 2.4rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; color: #00ff40; }
+
+.info-exhibition { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 0 1.6rem; border-top: 1px solid #077723; }
+.info-ex-title { font-size: 1.6rem; font-weight: 500; line-height: 1.15; color: #00ff40; margin-bottom: 0.3rem; }
+.info-year { white-space: nowrap; }
+
+html.mobile [id="W0120917068"] .page-content { padding: 15rem 2.2rem 5rem !important; }
+html.mobile .info-bio { max-width: 100%; font-size: 2.6rem; line-height: 1.1; margin-bottom: 5rem; }
+html.mobile .info-clients { grid-template-columns: minmax(0, 1fr); }
+html.mobile .info-name { font-size: 2.2rem; }
+
+/* current page in the nav */
+a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 1px; }
 
 /* ---- Archive Text (O3471381827) ---- */
 /* ========================================
@@ -3367,3 +3366,7 @@ html.mobile [id="N3368705310"] .page-content { padding-left: 2.2rem; padding-rig
 html.mobile [id="N3368705310"] .cs { grid-template-columns: 1fr 1fr !important; }
 html.mobile [id="N3368705310"] .cu { grid-column: auto !important; }
 html.mobile [id="N3368705310"] .cu div { text-align: left !important; }
+
+/* tag pills under project titles — one consistent row everywhere */
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; line-height: 1; }
+.tag-row .button-4 { white-space: nowrap; }

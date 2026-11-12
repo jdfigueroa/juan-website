@@ -19,17 +19,18 @@ come from Cargo (see "Cargo leftovers" below).
 ```
 index.html            Home: hero, "Selected Work" grid (#work), Archive / Explore
 archive.html          Text list of projects
+info.html             Info page: bio, 10 selected clients, exhibitions (was an overlay until Nov 2026)
 work/<slug>.html      One page per project (21). Order = home grid order.
 assets/css/style.css  All styles. Sections: base layout → site text styles → per-page styles → overrides
 assets/css/fonts.css  Font setup (Diatype not licensed off Cargo; Inter + JetBrains Mono fallback)
-assets/js/site.js     Info overlay, mobile menu, footer clock, scroll fade-in, touch thumbnail highlight, archive row click
+assets/js/site.js     #info → info.html redirect, mobile menu, footer clock, scroll fade-in, touch thumbnail highlight, archive row click
 assets/media/         All images (named <hash-prefix>-<original-name>)
 tools/                fetch_media.py + media-manifest.json (one-time Cargo image import)
 ```
 
 ## Shared pieces repeated in every page
-The desktop nav, mobile nav, footer and Info overlay are copied into **every** HTML file
-(no includes, since there's no build step). When changing any of them, update all 23 files —
+The desktop nav, mobile nav and footer are copied into **every** HTML file
+(no includes, since there's no build step). When changing any of them, update all 24 files —
 use a script/regex over `*.html work/*.html`, then verify with grep.
 - Footer email: `mailto:EMAIL@EXAMPLE.COM` (placeholder — ask Juan)
 - Footer Instagram: `https://www.instagram.com/YOUR_HANDLE/` (placeholder — ask Juan)
@@ -40,7 +41,7 @@ Per-page CSS targets `[id="CARGO_ID"]`, so keep ids when editing.
 
 A project page is:
 1. `section.page.hero` — full-screen backdrop image (`.backdrop.clip` = fixed image revealed while scrolling)
-2. `section.project-main` — location/year captions, title `h2`, tag pills `.button-4`, description `.body-text-1`, credits `.caption`
+2. `section.project-main` — location/year captions, title `h2` ending in `<span class="tag-row">` of `.button-4` pills (no `<br>` inside pills), description `.body-text-1`, credits `.caption`
 3. `section.project-images` — galleries and credits
 4. `nav.project-pager` — Back / Next (wraps around the home-grid order)
 
@@ -75,11 +76,15 @@ Mobile layout is driven by `html.mobile` (≤680px), set in the `<head>` script 
 
 ## Cargo leftovers (safe to clean up gradually)
 - Ids like `L2400837117` (home), `R1943008901` (desktop nav), `R4100027574` (mobile nav), `N3368705310` (footer),
-  `W0120917068` (Info), `O3471381827` (archive).
+  `W0120917068` (Info page section), `O3471381827` (archive).
 - `style.css` "SITE STYLES" contains unused Cargo text styles (`.mini`, `.footer`, `.nav-bar-2`, …).
 - Some `style="color: rgb(...)"` inline spans from Cargo's editor.
 
 ## Open items
+- Puma World Cup has a one-line placeholder description (the Cargo page had Still, Life's text by mistake); year set to 2026 per the archive — confirm with Juan.
+- Unconfirmed facts: Julius Manolo vs Manalo (Brandcast 26 vs FIFA credits); Max Lehder vs Ledher (EP19 vs EP16);
+  "Points in the Cloud" (Info/archive) vs "Points in the Clouds" (project page); Ela Minus & DJ Python 2022 (page) vs 2023 (archive);
+  Estéreo Picnic 17 location says New York; FIFA credits end with an incomplete name ("Kristina").
 - Email + Instagram placeholders in the footer.
 - "Explore" on home has no destination.
 - Archive rows for projects that don't exist yet are plain text.

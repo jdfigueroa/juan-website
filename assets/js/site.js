@@ -15,51 +15,11 @@
   setMobile();
   window.addEventListener("resize", setMobile);
 
-  /* ---------- Info overlay */
-  var overlay = document.getElementById("info");
-  var lastFocus = null;
-
-  function openOverlay() {
-    if (!overlay || !overlay.hidden) return;
-    lastFocus = document.activeElement;
-    overlay.hidden = false;
-    document.body.classList.add("no-scroll");
-    var close = overlay.querySelector(".overlay-close");
-    if (close) close.focus();
+  /* ---------- old "#info" links (from when Info was an overlay) go to the Info page */
+  if (location.hash === "#info") {
+    var infoLink = document.querySelector('a[href$="info.html"]');
+    if (infoLink) location.replace(infoLink.href);
   }
-  function closeOverlay() {
-    if (!overlay || overlay.hidden) return;
-    overlay.hidden = true;
-    document.body.classList.remove("no-scroll");
-    if (location.hash === "#info") history.replaceState(null, "", location.pathname + location.search);
-    if (lastFocus) lastFocus.focus();
-  }
-
-  if (overlay) {
-    var btn = document.createElement("button");
-    btn.className = "overlay-close";
-    btn.setAttribute("aria-label", "Close");
-    btn.textContent = "×";
-    btn.addEventListener("click", closeOverlay);
-    overlay.prepend(btn);
-
-    // close when clicking outside the text
-    overlay.addEventListener("click", function (e) {
-      if (!e.target.closest(".bodycopy > *") && !e.target.closest(".overlay-close")) closeOverlay();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeOverlay();
-    });
-  }
-
-  document.addEventListener("click", function (e) {
-    var trigger = e.target.closest("[data-open-overlay]");
-    if (!trigger) return;
-    e.preventDefault();
-    closeMenu();
-    openOverlay();
-  });
-  if (location.hash === "#info") openOverlay();
 
   /* ---------- mobile menu */
   var toggle = document.querySelector(".menu-toggle");
