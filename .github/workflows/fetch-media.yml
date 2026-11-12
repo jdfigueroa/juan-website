@@ -1,0 +1,35 @@
+# One-time job: copies the site's images from Cargo into assets/media/
+# and commits them. Runs automatically when the manifest changes, or
+# manually from the Actions tab ("Run workflow").
+name: Fetch media from Cargo
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/media-manifest.json", "tools/fetch_media.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download missing images
+        run: python3 tools/fetch_media.py
+      - name: Commit images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add assets/media
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+          else
+            git commit -m "Add site images from Cargo"
+            git push
+          fi

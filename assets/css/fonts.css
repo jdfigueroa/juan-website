@@ -1,0 +1,35 @@
+/* =====================================================
+   FONTS
+
+   Your Cargo site used ABC Diatype (Dinamo Typefaces). Cargo's license
+   only covers use on Cargo, so those font files can't be copied over.
+
+   Right now the site falls back to Inter + JetBrains Mono (free, loaded
+   from Google Fonts in each page's <head>).
+
+   To use Diatype again: buy a web license at https://abcdinamo.com,
+   put the .woff2 files in assets/fonts/ and uncomment the rules below.
+   Nothing else needs to change — the CSS already lists Diatype first.
+   ===================================================== */
+
+/*
+@font-face {
+  font-family: "Diatype Variable";
+  src: url("../fonts/ABCDiatypeVariable.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Diatype Semi-Mono Variable";
+  src: url("../fonts/ABCDiatypeSemi-MonoVariable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Diatype Mono Variable";
+  src: url("../fonts/ABCDiatypeMonoVariable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+*/
