@@ -1745,6 +1745,8 @@ html.mobile [id="D1283095044"] .page-layout {
 [id="W0120917068"] .page-content { padding: 10rem 4.4rem 7rem; }
 
 .info-bio { max-width: 75%; margin-bottom: 8rem; }
+.info-bio h1, .info-bio p { margin: 0; font-size: 4.25rem; font-weight: 418; line-height: 1.02; letter-spacing: -0.01em; color: #00ff40; }
+.info-bio p { margin-top: 1.1em; }
 .info-label, html.mobile .info-label { margin: 0 0 1.4rem; font-size: 1.2rem; line-height: 1.3; font-weight: 500; letter-spacing: 0; text-transform: uppercase; }
 .info-clients, .info-exhibitions { list-style: none; margin: 0; padding: 0; }
 
@@ -1763,7 +1765,8 @@ html.mobile [id="D1283095044"] .page-layout {
 .info-year { white-space: nowrap; }
 
 html.mobile [id="W0120917068"] .page-content { padding: 15rem 2.2rem 5rem !important; }
-html.mobile .info-bio { max-width: 100%; font-size: 2.6rem; line-height: 1.1; margin-bottom: 5rem; }
+html.mobile .info-bio { max-width: 100%; margin-bottom: 5rem; }
+html.mobile .info-bio h1, html.mobile .info-bio p { font-size: 2.6rem; line-height: 1.1; }
 html.mobile .info-clients { grid-template-columns: minmax(0, 1fr); }
 html.mobile .info-name { font-size: 2.2rem; }
 
