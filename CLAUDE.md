@@ -2,8 +2,15 @@
 
 Portfolio of Juan David Figueroa (art direction, motion, spatial & interactive; New York / Bogotá).
 Plain static site: HTML + CSS + vanilla JS. **No framework, no build step.** Edit files directly.
-Hosted on GitHub Pages from the `main` branch root; custom domain in `CNAME`.
+Hosted on GitHub Pages from the `main` branch root.
 Every push to `main` goes live in ~1 minute, so keep `main` working.
+
+**Domain status:** jdfigueroa.com still serves Juan's OLD site. The new site is on the
+github.io preview address until he decides to switch. Do NOT add a `CNAME` file or change
+DNS until he explicitly says to. At switch-over: add `CNAME` containing `jdfigueroa.com`,
+set the custom domain in repo Settings → Pages, change only the A/AAAA/CNAME web records at
+the registrar (never MX/email records), then enable "Enforce HTTPS".
+All links are relative, so the site works both under /repo-name/ and at the domain root.
 
 Originally built on Cargo 3 and converted in Nov 2026, so some class names and ids
 come from Cargo (see "Cargo leftovers" below).

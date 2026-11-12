@@ -21,7 +21,6 @@ Then open http://localhost:8000
 | `assets/css/style.css` | Styles |
 | `assets/js/site.js` | Interactions |
 | `assets/media/` | Images |
-| `CNAME` | Custom domain (jdfigueroa.com) |
 | `tools/` | One-time image import from Cargo |
 
 ## Fonts
