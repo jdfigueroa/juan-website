@@ -81,7 +81,7 @@ Mobile layout is driven by `html.mobile` (≤680px), set in the `<head>` script 
 - Some `style="color: rgb(...)"` inline spans from Cargo's editor.
 
 ## Open items
-- Puma World Cup has a one-line placeholder description (the Cargo page had Still, Life's text by mistake); year set to 2026 per the archive — confirm with Juan.
+- Puma World Cup: year set to 2026 per the archive (Cargo page header was copied from Still, Life) — confirm with Juan.
 - Unconfirmed facts: Julius Manolo vs Manalo (Brandcast 26 vs FIFA credits); Max Lehder vs Ledher (EP19 vs EP16);
   "Points in the Cloud" (Info/archive) vs "Points in the Clouds" (project page); Ela Minus & DJ Python 2022 (page) vs 2023 (archive);
   Estéreo Picnic 17 location says New York; FIFA credits end with an incomplete name ("Kristina").
